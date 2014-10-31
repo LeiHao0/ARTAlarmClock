@@ -1,25 +1,446 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dqm-D4-acr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Alarm Clock-->
+        <scene sceneID="T9U-33-Sol">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tableViewController id="bsl-K5-uhk" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="43z-b3-3TX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qYs-Ng-KCM">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qYs-Ng-KCM" id="Ju5-ix-xhQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bsl-K5-uhk" id="BEp-R4-LUo"/>
+                            <outlet property="delegate" destination="bsl-K5-uhk" id="3Oj-8W-DBe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Alarm Clock" id="IK9-HF-2DQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9po-zV-8l3">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="qpr-YP-HYr" kind="modal" id="PYV-q5-UaE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4U-yn-76G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2167.5" y="796"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c96-1y-Uo2">
+            <objects>
+                <navigationController id="qpr-YP-HYr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JOB-zg-nJ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Dqm-D4-acr" kind="relationship" relationship="rootViewController" id="R5A-Rc-k5u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6N-Y9-0X0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2488.5" y="39"/>
+        </scene>
+        <!--Add Alarm-->
+        <scene sceneID="pST-bd-eez">
+            <objects>
+                <viewController id="Dqm-D4-acr" customClass="AddAlarmViewController" customModule="ARTAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hxs-ch-EZW"/>
+                        <viewControllerLayoutGuide type="bottom" id="gVX-Yt-1Ss"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ff3-Ff-Tnw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-Sg-tGf">
+                                <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="436435907.45149797">
+                                    <!--2014-10-31 08:11:47 +0000-->
+                                </date>
+                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWU-XQ-M4d">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHO-qo-aol">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PGh-Vd-Aq1">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="30" id="VFK-Dz-Eth">
+                                                <variation key="widthClass=compact" constant="40"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" title="周四">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="PGh-Vd-Aq1"/>
+                                                <exclude reference="VFK-Dz-Eth"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="PGh-Vd-Aq1"/>
+                                                <include reference="VFK-Dz-Eth"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="weekBtnAction:" destination="Dqm-D4-acr" eventType="touchUpInside" id="u0R-Mi-aY1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAa-pW-LQC">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="5VT-gg-hUW">
+                                                <variation key="widthClass=compact" constant="40"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="30" id="iJd-94-Hkc">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" title="周五">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="iJd-94-Hkc"/>
+                                                <exclude reference="5VT-gg-hUW"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="iJd-94-Hkc"/>
+                                                <include reference="5VT-gg-hUW"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="weekBtnAction:" destination="Dqm-D4-acr" eventType="touchUpInside" id="oRq-Qb-OaP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyo-5U-LMM">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="o83-P6-p19">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="30" id="wJR-2b-dNE">
+                                                <variation key="widthClass=compact" constant="40"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" title="周六">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="o83-P6-p19"/>
+                                                <exclude reference="wJR-2b-dNE"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="o83-P6-p19"/>
+                                                <include reference="wJR-2b-dNE"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="weekBtnAction:" destination="Dqm-D4-acr" eventType="touchUpInside" id="u2S-62-9f0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKe-rn-Vwm">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="8SQ-IJ-YYQ">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="30" id="NyX-FT-MZE">
+                                                <variation key="widthClass=compact" constant="40"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" title="周日">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="8SQ-IJ-YYQ"/>
+                                                <exclude reference="NyX-FT-MZE"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="8SQ-IJ-YYQ"/>
+                                                <include reference="NyX-FT-MZE"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="weekBtnAction:" destination="Dqm-D4-acr" eventType="touchUpInside" id="L8D-F6-R5M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITV-Gc-ih9">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="2Pv-3u-62G">
+                                                <variation key="widthClass=compact" constant="40"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="30" id="S2s-RS-wq8">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" title="周三">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="S2s-RS-wq8"/>
+                                                <exclude reference="2Pv-3u-62G"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="S2s-RS-wq8"/>
+                                                <include reference="2Pv-3u-62G"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="weekBtnAction:" destination="Dqm-D4-acr" eventType="touchUpInside" id="Ne9-D3-qeI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUn-Hd-231">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="KIv-uF-uvn">
+                                                <variation key="widthClass=compact" constant="40"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="30" id="c0I-K7-ytI">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" title="周二">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="c0I-K7-ytI"/>
+                                                <exclude reference="KIv-uF-uvn"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="c0I-K7-ytI"/>
+                                                <include reference="KIv-uF-uvn"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="weekBtnAction:" destination="Dqm-D4-acr" eventType="touchUpInside" id="n34-Y0-Kwt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2O-6G-z5t">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="8E6-gW-eht">
+                                                <variation key="widthClass=compact" constant="40"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="30" id="rzc-OF-ek8">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" title="周一">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="rzc-OF-ek8"/>
+                                                <exclude reference="8E6-gW-eht"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="rzc-OF-ek8"/>
+                                                <include reference="8E6-gW-eht"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="weekBtnAction:" destination="Dqm-D4-acr" eventType="touchUpInside" id="D1R-ea-WLA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="UHO-qo-aol" firstAttribute="leading" secondItem="ITV-Gc-ih9" secondAttribute="trailing" constant="8" id="1mU-5a-iEB"/>
+                                    <constraint firstItem="HUn-Hd-231" firstAttribute="baseline" secondItem="ITV-Gc-ih9" secondAttribute="baseline" id="4OK-bn-mvb"/>
+                                    <constraint firstItem="HUn-Hd-231" firstAttribute="baseline" secondItem="UHO-qo-aol" secondAttribute="baseline" id="5Eb-Y2-fqn"/>
+                                    <constraint firstAttribute="centerX" secondItem="UHO-qo-aol" secondAttribute="centerX" id="9U1-Cd-WU6"/>
+                                    <constraint firstItem="HUn-Hd-231" firstAttribute="baseline" secondItem="IAa-pW-LQC" secondAttribute="baseline" id="9je-5O-Zyg"/>
+                                    <constraint firstItem="HUn-Hd-231" firstAttribute="baseline" secondItem="jyo-5U-LMM" secondAttribute="baseline" id="KEE-Uk-DIZ"/>
+                                    <constraint firstItem="HUn-Hd-231" firstAttribute="baseline" secondItem="w2O-6G-z5t" secondAttribute="baseline" id="Vlh-0P-gWr"/>
+                                    <constraint firstItem="ITV-Gc-ih9" firstAttribute="leading" secondItem="HUn-Hd-231" secondAttribute="trailing" constant="8" id="cSL-m7-61w"/>
+                                    <constraint firstAttribute="height" constant="54" id="fB1-gu-Kj9">
+                                        <variation key="widthClass=compact" constant="60"/>
+                                    </constraint>
+                                    <constraint firstItem="IAa-pW-LQC" firstAttribute="leading" secondItem="UHO-qo-aol" secondAttribute="trailing" constant="8" id="iTQ-QT-XHS"/>
+                                    <constraint firstItem="HUn-Hd-231" firstAttribute="leading" secondItem="w2O-6G-z5t" secondAttribute="trailing" constant="8" id="ntH-SA-3XF"/>
+                                    <constraint firstItem="jyo-5U-LMM" firstAttribute="leading" secondItem="IAa-pW-LQC" secondAttribute="trailing" constant="8" id="p6Y-EU-WFf"/>
+                                    <constraint firstItem="mKe-rn-Vwm" firstAttribute="leading" secondItem="UHO-qo-aol" secondAttribute="trailing" constant="104" id="pkL-qC-9RK"/>
+                                    <constraint firstAttribute="centerY" secondItem="UHO-qo-aol" secondAttribute="centerY" id="smY-J7-dMQ"/>
+                                    <constraint firstItem="HUn-Hd-231" firstAttribute="baseline" secondItem="mKe-rn-Vwm" secondAttribute="baseline" id="z8a-At-PWn"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="UHO-qo-aol"/>
+                                        <exclude reference="IAa-pW-LQC"/>
+                                        <exclude reference="jyo-5U-LMM"/>
+                                        <exclude reference="mKe-rn-Vwm"/>
+                                        <exclude reference="ITV-Gc-ih9"/>
+                                        <exclude reference="HUn-Hd-231"/>
+                                        <exclude reference="w2O-6G-z5t"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="fB1-gu-Kj9"/>
+                                        <exclude reference="4OK-bn-mvb"/>
+                                        <exclude reference="5Eb-Y2-fqn"/>
+                                        <exclude reference="9je-5O-Zyg"/>
+                                        <exclude reference="KEE-Uk-DIZ"/>
+                                        <exclude reference="Vlh-0P-gWr"/>
+                                        <exclude reference="ntH-SA-3XF"/>
+                                        <exclude reference="z8a-At-PWn"/>
+                                        <exclude reference="cSL-m7-61w"/>
+                                        <exclude reference="1mU-5a-iEB"/>
+                                        <exclude reference="9U1-Cd-WU6"/>
+                                        <exclude reference="smY-J7-dMQ"/>
+                                        <exclude reference="iTQ-QT-XHS"/>
+                                        <exclude reference="p6Y-EU-WFf"/>
+                                        <exclude reference="pkL-qC-9RK"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="UHO-qo-aol"/>
+                                        <include reference="IAa-pW-LQC"/>
+                                        <include reference="jyo-5U-LMM"/>
+                                        <include reference="mKe-rn-Vwm"/>
+                                        <include reference="ITV-Gc-ih9"/>
+                                        <include reference="HUn-Hd-231"/>
+                                        <include reference="w2O-6G-z5t"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="fB1-gu-Kj9"/>
+                                        <include reference="4OK-bn-mvb"/>
+                                        <include reference="5Eb-Y2-fqn"/>
+                                        <include reference="9je-5O-Zyg"/>
+                                        <include reference="KEE-Uk-DIZ"/>
+                                        <include reference="Vlh-0P-gWr"/>
+                                        <include reference="ntH-SA-3XF"/>
+                                        <include reference="z8a-At-PWn"/>
+                                        <include reference="cSL-m7-61w"/>
+                                        <include reference="1mU-5a-iEB"/>
+                                        <include reference="9U1-Cd-WU6"/>
+                                        <include reference="smY-J7-dMQ"/>
+                                        <include reference="iTQ-QT-XHS"/>
+                                        <include reference="p6Y-EU-WFf"/>
+                                        <include reference="pkL-qC-9RK"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XWU-XQ-M4d" firstAttribute="leading" secondItem="Ff3-Ff-Tnw" secondAttribute="leadingMargin" constant="-16" id="Fj5-GZ-yfU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AHr-Sg-tGf" secondAttribute="trailing" constant="-16" id="HNh-Ei-cYi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XWU-XQ-M4d" secondAttribute="trailing" constant="-16" id="aTE-4t-Due"/>
+                            <constraint firstItem="AHr-Sg-tGf" firstAttribute="leading" secondItem="Ff3-Ff-Tnw" secondAttribute="leadingMargin" constant="-16" id="nQo-YY-U3P"/>
+                            <constraint firstItem="AHr-Sg-tGf" firstAttribute="top" secondItem="hxs-ch-EZW" secondAttribute="bottom" constant="38" id="r0U-bg-HEd"/>
+                            <constraint firstItem="XWU-XQ-M4d" firstAttribute="top" secondItem="AHr-Sg-tGf" secondAttribute="bottom" constant="50" id="tER-6X-LRT"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="AHr-Sg-tGf"/>
+                                <exclude reference="XWU-XQ-M4d"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="HNh-Ei-cYi"/>
+                                <exclude reference="nQo-YY-U3P"/>
+                                <exclude reference="r0U-bg-HEd"/>
+                                <exclude reference="Fj5-GZ-yfU"/>
+                                <exclude reference="aTE-4t-Due"/>
+                                <exclude reference="tER-6X-LRT"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="AHr-Sg-tGf"/>
+                                <include reference="XWU-XQ-M4d"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="HNh-Ei-cYi"/>
+                                <include reference="nQo-YY-U3P"/>
+                                <include reference="r0U-bg-HEd"/>
+                                <include reference="Fj5-GZ-yfU"/>
+                                <include reference="aTE-4t-Due"/>
+                                <include reference="tER-6X-LRT"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Alarm" id="CZt-dd-H8p">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="dxt-VG-flD">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelBarBtnAction:" destination="Dqm-D4-acr" id="H2V-Ez-LJE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="存储" style="done" id="wv1-5B-CZh">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="weekView" destination="XWU-XQ-M4d" id="x7y-hi-85c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bev-HM-11m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2950.5" y="818"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FKi-BK-QV1">
+            <objects>
+                <navigationController id="fjV-3H-M3K" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="iHj-Gz-PDf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bsl-K5-uhk" kind="relationship" relationship="rootViewController" id="Fnl-6g-sp2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uQA-BT-1O4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1237.5" y="796"/>
         </scene>
     </scenes>
 </document>

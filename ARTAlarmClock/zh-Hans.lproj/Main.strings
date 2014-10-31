@@ -1,0 +1,24 @@
+
+/* Class = "IBUILabel"; text = "标签"; ObjectID = "1R5-sI-yd3"; */
+"1R5-sI-yd3.text" = "标签";
+
+/* Class = "IBUINavigationItem"; title = "Add Alarm"; ObjectID = "CZt-dd-H8p"; */
+"CZt-dd-H8p.title" = "Add Alarm";
+
+/* Class = "IBUILabel"; text = "闹钟"; ObjectID = "FQ5-hP-uia"; */
+"FQ5-hP-uia.text" = "闹钟";
+
+/* Class = "IBUINavigationItem"; title = "Alarm Clock"; ObjectID = "IK9-HF-2DQ"; */
+"IK9-HF-2DQ.title" = "Alarm Clock";
+
+/* Class = "IBUINavigationItem"; title = "添加闹钟"; ObjectID = "ScT-CO-HaB"; */
+"ScT-CO-HaB.title" = "添加闹钟";
+
+/* Class = "IBUITableViewSection"; headerTitle = " "; ObjectID = "Ymu-D0-95r"; */
+"Ymu-D0-95r.headerTitle" = " ";
+
+/* Class = "IBUILabel"; text = "重复"; ObjectID = "kGs-5U-ScC"; */
+"kGs-5U-ScC.text" = "重复";
+
+/* Class = "IBUILabel"; text = "永不"; ObjectID = "keb-4a-SEy"; */
+"keb-4a-SEy.text" = "永不";
